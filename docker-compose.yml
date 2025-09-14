@@ -2,11 +2,13 @@ volumes:
   mysql_data:
 services:
   gemini-balance:
-    image: ghcr.io/snailyp/gemini-balance:latest
+    image: ghcr.io/keenturbo/gemini-balance:latest
     container_name: gemini-balance
     restart: unless-stopped
     ports:
       - "8000:8000"
+    environment:
+      - TZ=Asia/Shanghai
     env_file:
       - .env
     depends_on:
